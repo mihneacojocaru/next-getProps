@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["vignette.wikia.nocookie.net"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

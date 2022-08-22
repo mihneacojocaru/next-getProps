@@ -1,0 +1,14 @@
+.container {
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.imageContainer {
+  width: 300px;
+  height: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+}
