@@ -17,8 +17,8 @@ export default class ApiData {
 
   getDataAirbender = async () => {
     try {
-      const resp = await axios.get(this.endpointAribender);
-      return resp.data;
+      const { data } = await axios.get(this.endpointAribender);
+      return data;
     } catch (error) {
       console.log(error);
     }

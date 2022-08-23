@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import Link from "next/link";
 import styles from "../../styles/Characters.module.scss";
 const Character: NextPage = ({ character }: any) => {
@@ -18,7 +19,7 @@ const Character: NextPage = ({ character }: any) => {
 
 export default Character;
 
-export async function getStaticProps({ params }: any) {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const results = await fetch(
     `https://last-airbender-api.herokuapp.com/api/v1/characters?name=${params.characterId.replace(
       /\-/g,
@@ -32,9 +33,9 @@ export async function getStaticProps({ params }: any) {
       character: character[0],
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const result = await fetch(
     "https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=500"
   );
@@ -52,4 +53,4 @@ export async function getStaticPaths() {
     }),
     fallback: false,
   };
-}
+};
